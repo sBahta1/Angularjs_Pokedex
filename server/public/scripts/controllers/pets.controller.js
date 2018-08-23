@@ -1,4 +1,4 @@
-app.controller('PetsController', function ($http){
+hotelApp.controller('PetsController',['$http', function ($http){
     vm = this
     vm.petArray = [];
     
@@ -8,7 +8,7 @@ app.controller('PetsController', function ($http){
         console.log('In getRentalList');
         $http({
             method: 'GET',
-            url: '/' //untill individual router made
+            url: '/pets' //untill individual router made
         }).then(function (response) {
             console.log('PetsController GET Listings', response.data);
             vm.rentalArr = response.data;
@@ -17,5 +17,9 @@ app.controller('PetsController', function ($http){
         });
     };
 
+function getPetOwner() {
+    console.log('In getPetOwner');
+    $http()
+}
 
-})//end PetsController
+}]);//end PetsController

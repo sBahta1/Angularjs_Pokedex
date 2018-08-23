@@ -1,17 +1,17 @@
-const app = angular.module('HotelApp',['ngRoute']);
+const hotelApp = angular.module('hotelApp',['ngRoute']);
 
-app.config(['$routeProvider', function($routeProvider){
+hotelApp.config( function($routeProvider){
     console.log('Route Provider working');
     $routeProvider.when('/',{
-        templateUrl:'views.home.html',
-        controller: 'HomeController as hc'
+        templateUrl:'views/home.html',
+        controller: 'HomeController as vm'
     }).when('/pets',{
         templateUrl:'views/pets.html',
-        controller:'PetsController as pc'
+        controller:'PetsController as vm'
     }).when('/owners',{
         templateUrl:'views/owners.html',
-        controller:'OwnerController.html as oc'
+        controller:'OwnerController as vm'
     }).otherwise({
         template:'<h1>Error 404 page not found</h1>'
     });
-}]);
+});
