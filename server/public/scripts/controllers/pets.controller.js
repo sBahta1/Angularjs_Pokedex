@@ -10,8 +10,8 @@ hotelApp.controller('PetsController',['$http', function ($http){
             method: 'GET',
             url: '/pets' 
         }).then(function (response) {
-            console.log('PetsController GET', response.data);
-            vm.rentalArr = response.data;
+            vm.petArray = response.data;
+            console.log('PetsController GET', vm.petArray);
         }).catch((error) => {
             console.log('Error in getPets', error);
         });
@@ -23,8 +23,9 @@ function getPetOwner() {
         method:'GET',
         url:'/pets/combo'
     }).then(function(response){
-        console.log('petcontr combo', response.data);
-        vm.comboArray = response.data;        
+        
+        vm.comboArray = response.data;
+        console.log('petcontr combo', vm.comboArray);        
     }).catch((error)=>{
         console.log('Error in combo');
     });

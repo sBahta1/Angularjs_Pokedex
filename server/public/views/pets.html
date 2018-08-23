@@ -1,18 +1,18 @@
 <table>
     <thead>
-        <th>Name</th>
-        <th>Animal Type</th>
-        <th>Notes</th>
-        <th>Check In</th>
-        <th>Owner</th>
+        <tr>
+            <th>Name</th>
+            <th>Animal Type</th>
+            <th>Notes</th>
+            <th>Check In</th>
+        </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr ng-repeat="animal in vm.petArray">
+            <td>{{animal.name}}</td>
+            <td>{{animal.type}}</td>
+            <td>{{animal.description}}</td>
+            <td>{{animal.checked_in}}</td>
         </tr>
     </tbody>
 </table>
