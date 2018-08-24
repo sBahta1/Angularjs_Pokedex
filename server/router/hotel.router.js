@@ -1,29 +1,17 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
-router.get('/', (req,res)=>{
-    console.log('GET Route');
-    const query = `SELECT * From "pets" JOIN "owners" 
-    ON "pets"."owner_id" = "owners"."id";`;
-    pool.query(query).then(results=>{
-        res.send(results.rows);
-    }).catch((error)=>{
-        console.log('Error GETting pets', error);
-        res.sendStatus(500);
-    });
-});
-
-router.get('/combo',(req,res)=>{
-    console.log('GET combo');
-    const query = `SELECT "owners"."name_first", "owners"."name_last","pets"."name" 
-                    From "owners" JOIN "pets"
-                    ON "owners"."id" = "pets"."owner_id";`;
-    pool.query(query).then(results=>{
-        res.send(results.rows);
-    }).catch((error)=>{
-        console.log('Error GETting Combo', error);
-        res.sendStatus(500);
-    });
-});
+router.post('/', (req, res) => {
+    const newPet = req.body
+    const query = `INSERT INTO "pets" ("name", "type", "description", "checked_in", "owner_id")
+                    VALUES ($1, $2, $3, $4, $5);`;
+    pool.query(query, [newPet.name, newPet.type, newPet.description, newPet.checked_in, newPet.owner_id])
+        .then(() => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error POSTing New Pet', error);
+            res.sendStatus(500);
+        });
+})
 
 module.exports = router;
