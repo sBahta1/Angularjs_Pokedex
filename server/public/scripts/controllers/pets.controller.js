@@ -3,7 +3,7 @@ hotelApp.controller('PetsController',['$http', function ($http){
     vm.petArray = [];
     vm.comboArray = [];
     getPets();
-    getPetOwner();
+  // getPetOwner();
     function getPets() {
         console.log('In get pets');
         $http({
@@ -17,13 +17,25 @@ hotelApp.controller('PetsController',['$http', function ($http){
         });
     };
 
+vm.deleteEntry = function (id){
+    console.log('In Delete Entry', id);
+    $http({
+        method:'DELETE',
+        url:'/pets/' + id
+    }).then(function(response){
+        console.log('Entry deleted',response);
+        getPets();
+    }).catch(function(error){
+        console.log('Could not delete', error);
+    });
+};    
+
 function getPetOwner() {
     console.log('In getPetOwner');
     $http({
         method:'GET',
         url:'/pets/combo'
-    }).then(function(response){
-        
+    }).then(function(response){ 
         vm.comboArray = response.data;
         console.log('petcontr combo', vm.comboArray);        
     }).catch((error)=>{

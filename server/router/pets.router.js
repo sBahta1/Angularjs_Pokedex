@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
+
 router.get('/', (req,res)=>{
     console.log('GET Route');
     const query = `SELECT * From "pets" JOIN "owners" 
@@ -25,5 +26,21 @@ router.get('/combo',(req,res)=>{
         res.sendStatus(500);
     });
 });
+
+router.delete('/:pet_id', function(req,res){
+    console.log('In Delete Route');
+    const deleteId = req.params.pet_id;
+    const query = `DELETE FROM "pets" WHERE "pet_id" = $1;`;
+    pool.query(query,[deleteId]).then((results)=>{
+        console.log(results);
+        res.sendStatus(200);
+    }).catch((error)=>{
+        console.log('Error in Delete route',error);
+        res.sendStatus(500);
+    });
+});
+
+
+
 
 module.exports = router;

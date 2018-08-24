@@ -1,18 +1,23 @@
 <table>
     <thead>
         <tr>
+            
             <th>Name</th>
             <th>Animal Type</th>
             <th>Notes</th>
-            <th>Check In</th>
+            <th>Checked In</th>
+            <th>Owner</th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="animal in vm.petArray">
+           
             <td>{{animal.name}}</td>
             <td>{{animal.type}}</td>
             <td>{{animal.description}}</td>
             <td>{{animal.checked_in}}</td>
+            <td>{{animal.name_first}} {{animal.name_last}}</td>
+            <td><button ng-click="vm.deleteEntry(animal.pet_id)">Remove</button></td>
         </tr>
     </tbody>
 </table>
