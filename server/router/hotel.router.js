@@ -14,11 +14,11 @@ router.post('/', (req, res) => {
         });
 })
 
-router.post('/owner',(req,res)=>{
-    const newOwner = req.body;
-    const query = `INSERT INTO "owners" ("name_first", name_last)
-                    VALUES ($1, $2);`;
-    pool.query(query,[newOwner.name_first, newOwner.name_last])
+router.post('/',(req,res)=>{
+    const newTrainer = req.body;
+    const query = `INSERT INTO "trainer" ("name")
+                    VALUES ($1);`;
+    pool.query(query,[newTrainer.name])
     .then(()=>{
         res.sendStatus(200);
     }).catch((error)=>{

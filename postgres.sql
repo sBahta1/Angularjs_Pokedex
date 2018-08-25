@@ -31,3 +31,37 @@ INSERT INTO "pets" ("name", "type", "description", "checked_in", "owner_id")
 	);
 	INSERT INTO "owners" ("name_first", "name_last")
  	VALUES ('Tina', 'Stewart'), ('Larry', 'Berry'), ('Sam','Bahta'), ('Ariana', 'Grande');
+
+
+
+CREATE TABLE "poke_badge" (
+	"id_badge" SERIAL PRIMARY KEY,
+	"name_badge" VARCHAR(50),
+	"gym" VARCHAR(50),
+	"gym_leader" VARCHAR(50),
+	"region" VARCHAR(50),
+	"badge_img"VARCHAR(50)
+);
+INSERT INTO "poke_badge" ("name_badge", "gym", "gym_leader", "region", "badge_img")
+VALUES ('Boulder Badge', 'Pewter City Gym', 'Brock', 'Kanto', 'boulderBadge.png'),
+	('Cascade Badge', 'Cerulean City Gym', 'Misty', 'Kanto','cascadeBadge.png'),
+	('Thunder Badge', 'Vermillion City Gym', 'Lt. Surge', 'Kanto', 'thunderBadge.png'),
+	('Rainbow Badge', 'Celadon City Gym', 'Erika', 'Kanto', 'rainbowBadge.png'),
+	('Soul Badge', 'Fuchsia City Gym', 'Koga', 'Kanto', 'soulBadge.png'),
+	('Marsh Badge', 'Saffron City Gym', 'Sabrina', 'Kanto', 'marshBadge.png'),
+	('Volcano Badge', 'Cinnabar Island Gym', 'Blaine', 'Kanto', 'volcanoBadge.png'),
+	('Earth Badge', 'Viridian City Gym', 'Giovanni', 'Kanto', 'earthBadge.png');
+
+CREATE TABLE "trainer" (
+	"id" SERIAL PRIMARY KEY,
+	"name" VARCHAR (50)
+);
+INSERT INTO "trainer" ("name")
+VALUES ('Sam'),('Ash'), ('Blue');
+
+CREATE TABLE "earned_badges" (
+	"trainer_num" INT REFERENCES "trainer",
+	"badge_num" INT REFERENCES "poke_badge"
+);
+INSERT INTO "earned_badges" ("trainer_num","badge_num")
+VALUES (1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),(2,7),(2,6),(3,1),(3,4),(3,5),(3,7);

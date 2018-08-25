@@ -8,9 +8,9 @@ hotelApp.config( function($routeProvider){
     }).when('/pets',{
         templateUrl:'views/pets.html',
         controller:'PetsController as vm'
-    }).when('/owners',{
-        templateUrl:'views/owners.html',
-        controller:'OwnerController as vm'
+    }).when('/trainer',{
+        templateUrl:'views/trainer.html',
+        controller:'TrainerController as vm'
     }).otherwise({
         template:'<h1>Error 404 page not found</h1>'
     });
