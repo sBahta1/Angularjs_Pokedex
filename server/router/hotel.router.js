@@ -14,4 +14,17 @@ router.post('/', (req, res) => {
         });
 })
 
+router.post('/owner',(req,res)=>{
+    const newOwner = req.body;
+    const query = `INSERT INTO "owners" ("name_first", name_last)
+                    VALUES ($1, $2);`;
+    pool.query(query,[newOwner.name_first, newOwner.name_last])
+    .then(()=>{
+        res.sendStatus(200);
+    }).catch((error)=>{
+        console.log('Error POSTing new owner', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

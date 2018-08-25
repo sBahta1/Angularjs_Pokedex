@@ -1,1 +1,11 @@
 <h1>Owners</h1>
+
+<form ng-submit="vm.addNewOwner()">
+    <input ng-model="vm.firstNameIn" placeholder="First Name">
+    <input ng-model="vm.lastNameIn" placeholder="Last Name">
+    <button>Submit</button>
+</form>
+
+<ul>
+    <li ng-repeat="person in vm.ownerArray">{{person.name_first}} {{person.name_last}}</li>
+</ul>
