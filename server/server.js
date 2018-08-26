@@ -3,13 +3,16 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
+//Routers
 const hotelRouter = require('./router/hotel.router');
-const petRouter = require('./router/pets.router');
+const pokemonRouter = require('./router/pokemon.router');
+const trainerRouter = require('./router/trainer.router')
 //uses
 app.use(bodyParser.json());
 app.use(express.static('server/public'));
 app.use('/hotel',hotelRouter);
-app.use('/pets',petRouter);
+app.use('/pokemon',pokemonRouter);
+app.use('/trainer', trainerRouter);
 
 
 

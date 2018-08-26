@@ -5,9 +5,9 @@ hotelApp.config( function($routeProvider){
     $routeProvider.when('/',{
         templateUrl:'views/home.html',
         controller: 'HomeController as vm'
-    }).when('/pets',{
-        templateUrl:'views/pets.html',
-        controller:'PetsController as vm'
+    }).when('/pokemon',{
+        templateUrl:'views/pokemon.html',
+        controller:'PokemonController as vm'
     }).when('/trainer',{
         templateUrl:'views/trainer.html',
         controller:'TrainerController as vm'

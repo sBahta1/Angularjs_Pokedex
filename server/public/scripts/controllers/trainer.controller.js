@@ -32,4 +32,7 @@ hotelApp.controller('TrainerController', function ($http) {
     };//End getTrainerList
 
     getTrainerList()
+
+ //   function loadPokemon(params) {     
+   // }
 });//end Owner Controller

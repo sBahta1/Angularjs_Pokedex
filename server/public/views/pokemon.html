@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Animal</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="monster in vm.pokemonArray">
+            <td>{{monster.id}}</td>
+            <td><img ng-src="images/emerald/{{monster.id}}.png"></td>
+        </tr>
+    </tbody>
+</table>
