@@ -1,4 +1,4 @@
-const hotelApp = angular.module('hotelApp',['ngRoute']);
+const hotelApp = angular.module('hotelApp',['ngRoute','ngMaterial']);
 
 hotelApp.config( function($routeProvider){
     console.log('Route Provider working');

@@ -1,3 +1,4 @@
+
 <h1>home</h1>
 
 <form ng-submit="vm.addNewPet()">
@@ -12,3 +13,8 @@
     <input type="text" ng-model="vm.ownerPin" placeholder="Owner ID Num.">
     <button>Submit</button>
 </form>
+
+<md-button class="md-primary md-raised" ng-click="vm.showPrompt($event)"  >
+        Prompt Dialog
+      </md-button>
+      {{vm.status}}

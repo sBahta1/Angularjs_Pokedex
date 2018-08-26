@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="styles/style.css">
     <script src="vendors/angular.min.js"></script>
     <script src="vendors/angular-route.js"></script>
+    <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
+    <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-aria.min.js" charset="utf-8"></script>
+    <script src="vendors/angular-messages.min.js" charset="utf-8"></script> 
+    <script src="vendors/angular-material.min.js" charset="utf-8"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/controllers/home.controller.js"></script>
     <script src="scripts/controllers/trainer.controller.js"></script> 
     <script src="scripts/controllers/pokemon.controller.js"></script>
     <title>Prime Pet Hotel</title>
 </head>
+
 <body ng-app="hotelApp">
     <h1>Welcome to the Prime Pet Hotel</h1>
     <li><a href="#!/">Home</a></li>
     <li><a href="#!/pokemon">Pokemon</a></li>
     <li><a href="#!/owners">Owners</a></li>
-
+    
         <ng-view></ng-view>
 
 </body>

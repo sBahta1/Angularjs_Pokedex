@@ -1,17 +1,12 @@
-<table>
-    <thead>
-        <tr>
-            <th>Number</th>
-            <th>Animal</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="monster in vm.pokemonArray">
-            <td>{{monster.id}}</td>
-            <td>
-            <button ng-click=vm.addPokemon(monster.id)>
-                <img ng-src="images/emerald/{{monster.id}}.png"></td>
-            </button>
-        </tr>
-    </tbody>
-</table>
+<div layout="row" layout-wrap>
+    <md-card flex-xs   ng-repeat="monster in vm.pokeKanto">
+        <md-card-title>
+            <md-card-title-text>
+                {{monster.poke_name}}
+            </md-card-title-text>
+        </md-card-title>
+        <md-card-media-sm style="align-self: center">
+            <img ng-src="images/emerald/{{monster.poke_id}}.png">
+        </md-card-media-sm>
+    </md-card>
+</div>

@@ -1,7 +1,7 @@
-hotelApp.controller('HomeController', ['$http', function ($http) {
+hotelApp.controller('HomeController', ['$http', '$mdDialog', function ($http, $mdDialog) {
     vm = this;
     console.log('HomeController Loaded');
-
+let loggedTrainer = '';
     vm.addNewPet = function () {
         let newPet = {
             name: vm.nameIn,
@@ -13,7 +13,7 @@ hotelApp.controller('HomeController', ['$http', function ($http) {
         console.log(newPet);
         $http({
             method: 'POST',
-            url: '/hotel',
+            url: '/hotel', 
             data: newPet
         }).then(function (response) {
             console.log('New Pet Added');
@@ -22,5 +22,39 @@ hotelApp.controller('HomeController', ['$http', function ($http) {
             console.log('Error', error);
         });
     };//end addNewPet
-
+    
+    vm.showPrompt = function(ev) {
+        console.log('i hate angular');
+        
+        // Appending dialog to document.body to cover sidenav in docs app
+        var confirm = $mdDialog.prompt()
+          .title('Welcome Back Trainer!')
+          .textContent('Enter your name to sign-in')
+          .placeholder('Trainer')
+          .ariaLabel('Trainer sign in')
+          .targetEvent(ev)
+          .required(true)
+          .ok('Okay!')
+          .cancel('Nevermind');
+    
+        $mdDialog.show(confirm).then(function(result) {
+            loggedTrainer = result
+            console.log(loggedTrainer);
+            
+          vm.status = 'You decided to name your dog ' + result + '.';
+        }, function() {
+          vm.status = 'You didn\'t name your dog.';
+        });
+      };
+    
+      vm.showAdvanced = function(ev) {
+        $mdDialog.show({
+          controller: HomeController,
+          templateUrl: 'views/home.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true,
+          fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
+        })
+    }
 }]); //end home controller

@@ -20,3 +20,5 @@ INSERT INTO "pets" ("name", "type", "description", "checked_in")
 	this is the Chrome extention used as a workaround for CORS - 
 		"No 'Access-Control-Allow-Origin' header is present on the requested resource" error. 
 	https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en-US
+
+

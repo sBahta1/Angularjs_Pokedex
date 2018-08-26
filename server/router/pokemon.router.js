@@ -12,7 +12,16 @@ router.get('/', (req,res)=>{
         res.sendStatus(500);
     });
 });
-
+router.get('/kanto', (req,res)=>{
+    console.log('GET Route');
+    const query = `SELECT * From "pokemon" WHERE "region" like 'Kanto';`;
+    pool.query(query).then(results=>{
+        res.send(results.rows);
+    }).catch((error)=>{
+        console.log('Error GETting by Kanto', error);
+        res.sendStatus(500);
+    });
+});
 // router.get('/combo',(req,res)=>{
 //     console.log('GET combo');
 //     const query = `SELECT "owners"."name_first", "owners"."name_last","pets"."name" 
