@@ -7,7 +7,7 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
     vm.pokeJohto = [];
     vm.pokeHoenn = [];
 
-
+    
     vm.addPokemon = function (id) {
        // console.log('click', id);
         let newCaught = {
@@ -15,6 +15,16 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             poke_num:id
         }
         console.log(newCaught); 
+        $http({
+            method:'POST',
+            url:'/trainer',
+            data:newCaught
+        }).then(function(response){
+            console.log('Nice Catch');
+        }).catch(function(error){
+            alert('Unable to add your catch', error);
+            console.log('Error', error);
+        });
     };
     //get pokemon and populate selction window
     function getKantoPokemon() {
