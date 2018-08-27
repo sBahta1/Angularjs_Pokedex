@@ -1,4 +1,4 @@
-<div layout="row" layout-wrap>
+<!-- <div layout="row" layout-wrap>
     <md-card flex-xs   ng-repeat="monster in vm.pokeKanto">
         <md-card-title>
             <md-card-title-text>
@@ -9,4 +9,89 @@
             <img ng-src="images/emerald/{{monster.poke_id}}.png">
         </md-card-media-sm>
     </md-card>
+</div> -->
+
+<!-- <div layout="row" layout-wrap>
+        <md-card flex-xs   ng-repeat="monster in vm.pokeJohto">
+            <md-card-title>
+                <md-card-title-text>
+                    {{monster.poke_name}}
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-media-sm style="align-self: center">
+                <img ng-src="images/emerald/{{monster.poke_id}}.png">
+            </md-card-media-sm>
+        </md-card>
+    </div> -->
+
+
+<!-- <div layout="row" layout-wrap>
+        <md-card flex-xs   ng-repeat="monster in vm.pokeHoenn">
+            <md-card-title>
+                <md-card-title-text>
+                    {{monster.poke_name}}
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-media-sm style="align-self: center">
+                <img ng-src="images/emerald/{{monster.poke_id}}.png">
+            </md-card-media-sm>
+        </md-card>
+    </div> -->
+
+<div ng-cloak>
+    <md-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Kanto">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Kanto</h1>
+                    <div layout="row" layout-wrap>
+                        <md-card flex-xs ng-repeat="monster in vm.pokeKanto" ng-click="vm.addPokemon(monster.poke_id)">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    {{monster.poke_name}}
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-media-sm style="align-self: center">
+                                <img ng-src="images/emerald/{{monster.poke_id}}.png">
+                            </md-card-media-sm>
+                        </md-card>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Johto">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Johto</h1>
+                    <div layout="row" layout-wrap>
+                        <md-card flex-xs ng-repeat="monster in vm.pokeJohto" ng-click="vm.addPokemon(monster.poke_id)">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    {{monster.poke_name}}
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-media-sm style="align-self: center">
+                                <img ng-src="images/emerald/{{monster.poke_id}}.png">
+                            </md-card-media-sm>
+                        </md-card>
+                    </div>
+                </md-content>
+            </md-tab>
+            <md-tab label="Hoenn">
+                <md-content class="md-padding">
+                    <h1 class="md-display-2">Hoenn</h1>
+                    <div layout="row" layout-wrap>
+                        <md-card flex-xs ng-repeat="monster in vm.pokeHoenn" ng-click="vm.addPokemon(monster.poke_id)">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    {{monster.poke_name}}
+                                </md-card-title-text>
+                            </md-card-title>
+                            <md-card-media-sm style="align-self: center">
+                                <img ng-src="images/emerald/{{monster.poke_id}}.png">
+                            </md-card-media-sm>
+                        </md-card>
+                    </div>
+                </md-content>
+            </md-tab>
+        </md-tabs>
+    </md-content>
 </div>
