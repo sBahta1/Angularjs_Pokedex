@@ -19,24 +19,7 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
         });
     }//end addNewOwner
 
-    function getTrainerProfile(trainer) {
-        console.log('In getPetOwner', trainer);
-        let newTrainer = {
-            name: trainer,
-        }
-        console.log('In getPetOwner', newTrainer);
-        $http({
-            method: 'GET',
-            url: '/trainer',
-            data: newTrainer
-        }).then(function (response) {
-            vm.trainerArray = response.data;
-            console.log('trainers', vm.trainerArray);
-            sort();
-        }).catch((error) => {
-            console.log('Error in combo');
-        });
-    };//End getTrainerList
+    
 
 
     vm.showPrompt = function (ev) {
@@ -56,23 +39,13 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
         $mdDialog.show(confirm).then(function (result) {
             loggedTrainer = result
             // console.log(loggedTrainer);
-            getTrainerProfile(loggedTrainer);
+            addNewTrainer(loggedTrainer);
             vm.status = 'You decided to name your dog ' + result + '.';
         }, function () {
             vm.status = 'You didn\'t name your dog.';
         });
     };
 
-    // vm.showAdvanced = function (ev) {
-    //     $mdDialog.show({
-    //         controller: TrainerController,
-    //         templateUrl: 'views/home.html',
-    //         parent: angular.element(document.body),
-    //         targetEvent: ev,
-    //         clickOutsideToClose: true,
-    //         fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
-    //     })
-    // }
 
     vm.removeEntry = function (id,poke){
         console.log(id,poke);
