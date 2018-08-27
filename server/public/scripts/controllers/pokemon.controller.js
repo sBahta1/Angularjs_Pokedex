@@ -1,31 +1,20 @@
 hotelApp.controller('PokemonController', ['$http', function ($http) {
     vm = this;
     console.log('PokemonController Loaded');
-    // const Pokedex = require('pokedex-promise-v2');
-    // const P = new Pokedex();
-
-    vm.pokemonArray = [];
+    
+    vm.trainerList= [];
     vm.pokeKanto = [];
     vm.pokeJohto = [];
     vm.pokeHoenn = [];
-    // function getPokemon() {
-    //     console.log('in GET Pokemon');
 
-    //     $http({
-    //         method: 'GET',
-    //         url: '/pokemon'
-    //     }).then(function (response) {
-    //         vm.pokemonArray = response.data;
-    //         console.log('pokemon get', vm.pokemonArray);
-    //     }).catch((error) => {
-    //         console.log('error in getpokemon', error);
-    //     });
-    // };
-    // getPokemon();
+
     vm.addPokemon = function (id) {
-        console.log('click',id);
-       // apiPokemon(id);
-        //vm.getPokemonByName(id);
+       // console.log('click', id);
+        let newCaught = {
+            trainer_num: vm.trainerSelect,
+            poke_num:id
+        }
+        console.log(newCaught); 
     };
     //get pokemon and populate selction window
     function getKantoPokemon() {
@@ -35,14 +24,12 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/kanto'
         }).then(function (response) {
             vm.pokeKanto = response.data;
-            console.log('pokemon get', vm.pokeKanto);
+        //    console.log('pokemon get', vm.pokeKanto);
         }).catch((error) => {
             console.log('error in getKantoPokemon', error);
         });
     };
-    getKantoPokemon();
-    getJohtoPokemon()
-    getHoennPokemon();
+
     function getJohtoPokemon() {
         console.log('in GET Pokemon');
         $http({
@@ -50,12 +37,12 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/johto'
         }).then(function (response) {
             vm.pokeJohto = response.data;
-            console.log('pokemon get', vm.pokeJohto);
+        //    console.log('pokemon get', vm.pokeJohto);
         }).catch((error) => {
             console.log('error in getJohtoPokemon', error);
         });
     };
-    
+
     function getHoennPokemon() {
         console.log('in GET Pokemon');
         $http({
@@ -63,22 +50,27 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/hoenn'
         }).then(function (response) {
             vm.pokeHoenn = response.data;
-            console.log('pokemon get', vm.pokeHoenn);
+        //    console.log('pokemon get', vm.pokeHoenn);
         }).catch((error) => {
             console.log('error in getHoennPokemon', error);
         });
     };
-
-    function apiPokemon(id) {
-        console.log('in Pokemon api');
+    function getTrainerList() {
         $http({
             method: 'GET',
-            url: 'http://pokeapi.co/api/v2/pokemon/' + id
+            url: '/trainer',
         }).then(function (response) {
-            console.log(response.data.name);
+            vm.trainerList = response.data;
+            console.log('trainers', vm.trainerList);
         }).catch((error) => {
-            console.log('error in getpokemon', error);
+            console.log('Error in combo');
         });
-    };
+    };//End getTrainerList
+
+    getKantoPokemon();
+    getJohtoPokemon();
+    getHoennPokemon();
+    getTrainerList();
+
 
 }]);//end controller

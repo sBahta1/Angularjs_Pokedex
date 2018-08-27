@@ -1,30 +1,30 @@
 hotelApp.controller('HomeController', ['$http', '$mdDialog', function ($http, $mdDialog) {
     vm = this;
     console.log('HomeController Loaded');
-let loggedTrainer = '';
-    vm.addNewPet = function () {
-        let newPet = {
-            name: vm.nameIn,
-            type: vm.typeIn,
-            description: vm.notesIn,
-            checked_in: vm.checkIn,
-            owner_id: vm.ownerPin,
-        }
-        console.log(newPet);
-        $http({
-            method: 'POST',
-            url: '/hotel', 
-            data: newPet
-        }).then(function (response) {
-            console.log('New Pet Added');
-        }).catch(function (error) {
-            alert('Unable to add you new pet', error)
-            console.log('Error', error);
-        });
-    };//end addNewPet
+    vm.loggedTrainer = '';
+    
+    // vm.addNewPet = function () {
+    //     let newPet = {
+    //         name: vm.nameIn,
+    //         type: vm.typeIn,
+    //         description: vm.notesIn,
+    //         checked_in: vm.checkIn,
+    //         owner_id: vm.ownerPin,
+    //     }
+    //     console.log(newPet);
+    //     $http({
+    //         method: 'POST',
+    //         url: '/hotel', 
+    //         data: newPet
+    //     }).then(function (response) {
+    //         console.log('New Pet Added');
+    //     }).catch(function (error) {
+    //         alert('Unable to add you new pet', error)
+    //         console.log('Error', error);
+    //     });
+    // };//end addNewPet
     
     vm.showPrompt = function(ev) {
-        console.log('i hate angular');
         
         // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
@@ -38,7 +38,7 @@ let loggedTrainer = '';
           .cancel('Nevermind');
     
         $mdDialog.show(confirm).then(function(result) {
-            loggedTrainer = result
+            vm.loggedTrainer = result
             console.log(loggedTrainer);
             
           vm.status = 'You decided to name your dog ' + result + '.';
@@ -57,4 +57,21 @@ let loggedTrainer = '';
           fullscreen: vm.customFullscreen // Only for -xs, -sm breakpoints.
         })
     }
+
+    vm.addNewtrainer = function () {
+        let newTrainer = {
+            name:vm.nameIn,
+        }
+        $http({
+            method: 'POST',
+            url: '/trainer',
+            data: newTrainer
+        }).then(function (response) {
+            console.log('New Owner Added');
+        }).catch(function (error) {
+            alert('Unable to add you, new trainer', error)
+            console.log('Error', error);
+        });
+    }//end addNewOwner
+
 }]); //end home controller

@@ -15,10 +15,11 @@ router.post('/',(req,res)=>{
     });
 });
 
+
 //Route for getTrainerList()
 router.get('/', (req,res)=>{
     console.log('GET Route');
-    const query = `SELECT * From "trainer";`;
+    const query = `SELECT * FROM "trainer";`;
     pool.query(query).then(results=>{
         res.send(results.rows);
     }).catch((error)=>{

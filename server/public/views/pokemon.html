@@ -1,42 +1,8 @@
-<!-- <div layout="row" layout-wrap>
-    <md-card flex-xs   ng-repeat="monster in vm.pokeKanto">
-        <md-card-title>
-            <md-card-title-text>
-                {{monster.poke_name}}
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-media-sm style="align-self: center">
-            <img ng-src="images/emerald/{{monster.poke_id}}.png">
-        </md-card-media-sm>
-    </md-card>
-</div> -->
+<select id="addNewChickIn" ng-model="vm.trainerSelect">
+    <option value="">--Select Trainer</option>    
+    <option ng-repeat="person in vm.trainerList" value="{{person.id}}">---{{person.name}}---</option> 
+    <select>
 
-<!-- <div layout="row" layout-wrap>
-        <md-card flex-xs   ng-repeat="monster in vm.pokeJohto">
-            <md-card-title>
-                <md-card-title-text>
-                    {{monster.poke_name}}
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-media-sm style="align-self: center">
-                <img ng-src="images/emerald/{{monster.poke_id}}.png">
-            </md-card-media-sm>
-        </md-card>
-    </div> -->
-
-
-<!-- <div layout="row" layout-wrap>
-        <md-card flex-xs   ng-repeat="monster in vm.pokeHoenn">
-            <md-card-title>
-                <md-card-title-text>
-                    {{monster.poke_name}}
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-media-sm style="align-self: center">
-                <img ng-src="images/emerald/{{monster.poke_id}}.png">
-            </md-card-media-sm>
-        </md-card>
-    </div> -->
 
 <div ng-cloak>
     <md-content>
