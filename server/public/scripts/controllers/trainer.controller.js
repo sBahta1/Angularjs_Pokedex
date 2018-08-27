@@ -3,6 +3,7 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
     vm.trainerArray = [];
     let loggedTrainer = '';
     vm.pokedexArray = [];
+    vm.profileArray = [];
     function addNewTrainer(name) {
         let newTrainer = {
             name: name,
@@ -45,8 +46,19 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
             vm.status = 'You didn\'t name your dog.';
         });
     };
-
-
+    function getProfile(id) {
+        $http({
+            method:'GET',
+            url:'/trainer/profile' + id
+        }).then(function(response){
+         vm.profileArray = response.data;
+         console.log(vm.profileArray);
+        }).catch((error)=>{
+            console.log('Error getting Pokedex');
+        
+        });
+    };
+getProfile();
     vm.removeEntry = function (id,poke){
         console.log(id,poke);
         $http({

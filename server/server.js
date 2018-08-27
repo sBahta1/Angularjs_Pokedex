@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 
 //Routers
-
+const profileRouter = require('./router/profile.router')
 const pokemonRouter = require('./router/pokemon.router');
 const trainerRouter = require('./router/trainer.router')
 //uses
@@ -14,7 +14,7 @@ app.use(express.static('server/public'));
 
 app.use('/pokemon',pokemonRouter);
 app.use('/trainer', trainerRouter);
-
+app.use('/profile',profileRouter);
 
 
 app.listen(PORT,() =>{

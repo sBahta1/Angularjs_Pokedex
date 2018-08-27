@@ -14,7 +14,7 @@ router.post('/new', (req, res) => {
             res.sendStatus(500);
         });
 });
-
+//post new catches
 router.post('/', (req, res) => {
     const newCatch = req.body;
     const query = `INSERT INTO "caught_poke" ("trainer_num","poke_num")
@@ -41,6 +41,7 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     });
 });
+//get pokedex info
 router.get('/pokedex', (req, res) => {
     console.log('GET Route');
     const query = `SELECT * FROM "trainer" 
@@ -55,6 +56,8 @@ router.get('/pokedex', (req, res) => {
         res.sendStatus(500);
     });
 });
+
+//delete pokedex entry
 router.delete('/remove/:id/:poke', function (req, res) {
     const entry = req.params.id;
     const entry2 = req.params.poke;

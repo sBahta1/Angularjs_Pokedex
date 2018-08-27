@@ -2,9 +2,9 @@ const hotelApp = angular.module('hotelApp',['ngRoute','ngMaterial']);
 
 hotelApp.config( function($routeProvider){
     console.log('Route Provider working');
-    $routeProvider.when('/',{
-        templateUrl:'views/home.html',
-        controller: 'HomeController as vm'
+    $routeProvider.when('/profile',{
+        templateUrl:'views/profile.html',
+        controller: 'ProfileController as vm'
     }).when('/pokemon',{
         templateUrl:'views/pokemon.html',
         controller:'PokemonController as vm'
