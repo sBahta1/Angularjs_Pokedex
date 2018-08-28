@@ -1,27 +1,27 @@
 hotelApp.controller('PokemonController', ['$http', function ($http) {
     vm = this;
     console.log('PokemonController Loaded');
-    
-    vm.trainerList= [];
+
+    vm.trainerList = [];
     vm.pokeKanto = [];
     vm.pokeJohto = [];
     vm.pokeHoenn = [];
 
-    
+
     vm.addPokemon = function (id) {
-       // console.log('click', id);
+        // console.log('click', id);
         let newCaught = {
             trainer_num: vm.trainerSelect,
-            poke_num:id
+            poke_num: id
         }
-        console.log(newCaught); 
+        console.log(newCaught);
         $http({
-            method:'POST',
-            url:'/trainer',
-            data:newCaught
-        }).then(function(response){
+            method: 'POST',
+            url: '/trainer',
+            data: newCaught
+        }).then(function (response) {
             console.log('Nice Catch');
-        }).catch(function(error){
+        }).catch(function (error) {
             alert('Unable to add your catch', error);
             console.log('Error', error);
         });
@@ -34,7 +34,7 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/kanto'
         }).then(function (response) {
             vm.pokeKanto = response.data;
-        //    console.log('pokemon get', vm.pokeKanto);
+            //    console.log('pokemon get', vm.pokeKanto);
         }).catch((error) => {
             console.log('error in getKantoPokemon', error);
         });
@@ -47,7 +47,7 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/johto'
         }).then(function (response) {
             vm.pokeJohto = response.data;
-        //    console.log('pokemon get', vm.pokeJohto);
+            //    console.log('pokemon get', vm.pokeJohto);
         }).catch((error) => {
             console.log('error in getJohtoPokemon', error);
         });
@@ -60,7 +60,7 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             url: '/pokemon/hoenn'
         }).then(function (response) {
             vm.pokeHoenn = response.data;
-        //    console.log('pokemon get', vm.pokeHoenn);
+            //    console.log('pokemon get', vm.pokeHoenn);
         }).catch((error) => {
             console.log('error in getHoennPokemon', error);
         });

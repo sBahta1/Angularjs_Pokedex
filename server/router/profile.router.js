@@ -11,7 +11,7 @@ router.get('/pokemon/:id', (req, res) => {
                     JOIN "pokemon" 
                     on "pokemon"."poke_id" = "caught_poke"."poke_num"
                     WHERE "trainer"."id" = $1;`;
-    pool.query(query,[trainerProfile]).then(results => {
+    pool.query(query, [trainerProfile]).then(results => {
         res.send(results.rows);
     }).catch((error) => {
         console.log('Error GETting pets', error);
@@ -28,7 +28,7 @@ router.get('/badges/:id', (req, res) => {
                     JOIN "poke_badge" 
                     on "poke_badge"."id_badge" = "earned_badges"."badge_num"
                     WHERE "trainer"."id" = $1;`;
-    pool.query(query,[trainerBadges]).then(results => {
+    pool.query(query, [trainerBadges]).then(results => {
         res.send(results.rows);
     }).catch((error) => {
         console.log('Error GETting pets', error);

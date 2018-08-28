@@ -62,7 +62,8 @@
                 <div class="md-list-item-text" layout="column">
                     <h3>{{entry.poke_name}}</h3>
                     <h4>Caught by: {{entry.name}}</h4>
-                    <p>Primary Type:<img ng-src="images/types/{{entry.type_1}}.png"/> | Secondary Type:<img ng-src="images/types/{{entry.type_2}}.png"/> | Region: {{entry.region}}</p>
+                    <p>Primary Type:<img ng-src="images/types/{{entry.type_1}}.png" /> | Secondary Type:<img ng-src="images/types/{{entry.type_2}}.png"
+                        /> | Region: {{entry.region}}</p>
                 </div>
                 <md-button class="md-secondary" ng-click="vm.removeEntry(entry.trainer_num, entry.poke_num)">Remove</md-button>
                 <md-divider md-inset></md-divider>

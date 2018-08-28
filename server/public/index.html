@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,20 @@
     <link href="vendors/angular-material.css" rel="stylesheet" type="text/css">
     <script src="vendors/angular-animate.min.js" charset="utf-8"></script>
     <script src="vendors/angular-aria.min.js" charset="utf-8"></script>
-    <script src="vendors/angular-messages.min.js" charset="utf-8"></script> 
+    <script src="vendors/angular-messages.min.js" charset="utf-8"></script>
     <script src="vendors/angular-material.min.js" charset="utf-8"></script>
     <script src="scripts/client.js"></script>
     <script src="scripts/controllers/profile.controller.js"></script>
-    <script src="scripts/controllers/trainer.controller.js"></script> 
+    <script src="scripts/controllers/trainer.controller.js"></script>
     <script src="scripts/controllers/pokemon.controller.js"></script>
     <title>Prime Pet Hotel</title>
 </head>
 
 <body ng-app="hotelApp">
-    <header> 
-    <h1>Welcome Professor Oak's Pokedex Center</h1>
+    <header>
+        <h1>Welcome Professor Oak's Pokedex Center</h1>
     </header>
-        <!-- <md-nav-bar
+    <!-- <md-nav-bar
         md-no-ink-bar="disableInkBar"
         md-selected-nav-item="currentNavItem"
         nav-bar-aria-label="navigation links">
@@ -34,14 +35,15 @@
                 Page Two
               </md-nav-item>
               <md-divider></md-divider> -->
-    
-    
-                  
+
+
+
     <a href="#!/profile"><md-button class="md-primary md-raised">Profile</md-button></a>
     <a href="#!/pokemon"><md-button class="md-primary md-raised">Pokemon</md-button></a>
     <a href="#!/trainer"><md-button class="md-primary md-raised">Log</md-button></a>
-    
-        <ng-view></ng-view>
+
+    <ng-view></ng-view>
 
 </body>
+
 </html>
