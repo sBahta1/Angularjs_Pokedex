@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const pool = require('../modules/pool');
 
-
+//all pokemon :currently unused 
 router.get('/', (req,res)=>{
     console.log('GET Route');
     const query = `SELECT * From "pokemon";`;
@@ -12,6 +12,7 @@ router.get('/', (req,res)=>{
         res.sendStatus(500);
     });
 });
+//get pokemon by kanto region
 router.get('/kanto', (req,res)=>{
     console.log('GET Route');
     const query = `SELECT * From "pokemon" WHERE "region" like 'Kanto' ORDER BY "poke_id" ASC;`;
@@ -22,7 +23,7 @@ router.get('/kanto', (req,res)=>{
         res.sendStatus(500);
     });
 });
-
+//gets pokemon by johto region
 router.get('/johto', (req,res)=>{
     console.log('GET Route');
     const query = `SELECT * From "pokemon" WHERE "region" like 'Johto' ORDER BY "poke_id" ASC;`;
@@ -33,7 +34,7 @@ router.get('/johto', (req,res)=>{
         res.sendStatus(500);
     });
 });
-
+//gets pokemon by Hoenn region
 router.get('/hoenn', (req,res)=>{
     console.log('GET Route');
     const query = `SELECT * From "pokemon" WHERE "region" like 'Hoenn' ORDER BY "poke_id" ASC;`;

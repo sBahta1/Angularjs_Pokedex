@@ -45,6 +45,7 @@ CREATE TABLE "pokemon" (
 "type_1" VARCHAR (40),
 "type_2" VARCHAR (40) DEFAULT NULL
 );
+## "pokemon" has a fourth column "region" that was entered in later##
 INSERT INTO "pokemon" ("poke_name", "type_1", "type_2")
 VALUES ('Bulbasaur', 'Grass', 'Poison'),
     ('Ivysaur', 'Grass', 'Poison'),

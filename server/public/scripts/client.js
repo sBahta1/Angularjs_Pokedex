@@ -12,6 +12,6 @@ hotelApp.config( function($routeProvider){
         templateUrl:'views/trainer.html',
         controller:'TrainerController as vm'
     }).otherwise({
-        template:'<h1>Error 404 page not found</h1>'
+        template:'<h1>Please select from the options above</h1>'
     });
 });

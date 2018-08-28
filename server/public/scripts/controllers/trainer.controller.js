@@ -4,6 +4,8 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
     let loggedTrainer = '';
     vm.pokedexArray = [];
     vm.profileArray = [];
+    
+    
     function addNewTrainer(name) {
         let newTrainer = {
             name: name,
@@ -22,11 +24,8 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
 
     
 
-
+//prompt to add a new trainer 
     vm.showPrompt = function (ev) {
-        console.log('i hate angular');
-
-        // Appending dialog to document.body to cover sidenav in docs app
         var confirm = $mdDialog.prompt()
             .title('Welcome Back Trainer!')
             .textContent('Enter your name to sign-in')
@@ -41,11 +40,12 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
             loggedTrainer = result
             // console.log(loggedTrainer);
             addNewTrainer(loggedTrainer);
-            vm.status = 'You decided to name your dog ' + result + '.';
+            vm.status = result;
         }, function () {
-            vm.status = 'You didn\'t name your dog.';
+            vm.status = 'Next time maybe';
         });
     };
+  
     function getProfile(id) {
         $http({
             method:'GET',
@@ -58,14 +58,14 @@ hotelApp.controller('TrainerController', ['$http', '$mdDialog', function ($http,
         
         });
     };
-getProfile();
+
     vm.removeEntry = function (id,poke){
         console.log(id,poke);
         $http({
             method:'DELETE',
             url:'/trainer/remove/' + id + '/' + poke
         }).then(function(response){
-            console.log('entry deleted',response.data);
+           // console.log('entry deleted',response.data);
             getPokedex()
         }).catch((error)=>{
             console.log('Error deleting entry');
@@ -78,11 +78,13 @@ getProfile();
            url:'/trainer/pokedex'
        }).then(function(response){
         vm.pokedexArray = response.data;
-        console.log(vm.pokedexArray);
+      //  console.log(vm.pokedexArray);
         
        }).catch((error)=>{
            console.log('Error getting Pokedex');
        });
    };
-    getPokedex()
+   
+   getPokedex();
+    getProfile();
 }]);//end Owner Controller

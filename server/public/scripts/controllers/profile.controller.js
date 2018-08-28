@@ -10,7 +10,7 @@ hotelApp.controller('ProfileController', ['$http', function ($http) {
         getProfileBadges(vm.trainerSelect); 
         
     }
-
+//grabs list of trainers in order to select specific profiles
     function getTrainerList() {
         $http({
             method: 'GET',
