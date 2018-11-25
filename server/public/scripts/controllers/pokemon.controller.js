@@ -21,6 +21,7 @@ hotelApp.controller('PokemonController', ['$http', function ($http) {
             data: newCaught
         }).then(function (response) {
             console.log('Nice Catch');
+            
         }).catch(function (error) {
             alert('Unable to add your catch', error);
             console.log('Error', error);

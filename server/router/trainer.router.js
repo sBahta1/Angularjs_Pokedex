@@ -14,13 +14,13 @@ router.post('/new', (req, res) => {
             res.sendStatus(500);
         });
 });
+
 //post new catches
 router.post('/', (req, res) => {
     const newCatch = req.body;
     const query = `INSERT INTO "caught_poke" ("trainer_num","poke_num")
                     VALUES ($1 , $2);`;
     console.log(newCatch);
-
     pool.query(query, [newCatch.trainer_num, newCatch.poke_num])
         .then(() => {
             res.sendStatus(200);
