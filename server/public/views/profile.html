@@ -3,15 +3,20 @@
     <option ng-repeat="person in vm.trainerList" value="{{person.id}}">---{{person.name}}---</option>
     <select>
         <md-button ng-click=vm.fireAway()>Get Profile</md-button>
-        <div flex-gt-md flex>
-            <md-toolbar layout="row" class="md-hue-3">
+            <md-toolbar layout="row">
                 <div class="md-toolbar-tools">
                     <span>Profiles</span>
                 </div>
             </md-toolbar>
+            <div layout-gt-sm="row" layout="column">
             <div flex-gt-sm="50" flex="">
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Pokemon Caught</span>
+                    </div>
+                </md-toolbar>
                 <md-content>
-                    <md-list flex>
+                    <md-list flex="">
                         <md-list-item class="md-3-line" ng-repeat="entry in vm.profileArray" ng-click="null">
                             <img ng-src="images/emerald/{{entry.poke_id}}.png" class="md-avatar" />
                             <div class="md-list-item-text" layout="column">
@@ -27,7 +32,13 @@
                     </md-list>
                 </md-content>
             </div>
+            <md-divider></md-divider>
             <div flex-gt-sm="50" flex="">
+                <md-toolbar layout="row" class="md-hue-3">
+                    <div class="md-toolbar-tools">
+                        <span>Badges Earned</span>
+                    </div>
+                </md-toolbar>
                 <md-content>
                     <md-list flex>
                         <md-list-item class="md-3-line" ng-repeat="entry in vm.badgesArray" ng-click="null">
@@ -43,5 +54,4 @@
                     </md-list>
             </div>
 
-        </div>
         </div>
