@@ -21,7 +21,7 @@ hotelApp.controller('ProfileController', ['$http', function ($http) {
             console.log('Error in combo');
         });
     };//End getTrainerList
-    
+
     //gets pokemon by indicated trainer
     function getProfilePokemon(id) {
         //id = trainerSelect;
@@ -52,7 +52,7 @@ hotelApp.controller('ProfileController', ['$http', function ($http) {
             console.log('Error getting badge profile', vm.badgesArray);
         });
     };
-  
-    getTrainerList()
 
+    getTrainerList();
+   
 }]); //end home controller

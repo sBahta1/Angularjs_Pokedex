@@ -3,12 +3,12 @@
     <option ng-repeat="person in vm.trainerList" value="{{person.id}}">---{{person.name}}---</option>
     <select>
         <md-button ng-click=vm.fireAway()>Get Profile</md-button>
-            <md-toolbar layout="row">
-                <div class="md-toolbar-tools">
-                    <span>Profiles</span>
-                </div>
-            </md-toolbar>
-            <div layout-gt-sm="row" layout="column">
+        <md-toolbar layout="row">
+            <div class="md-toolbar-tools">
+                <span>Profiles</span>
+            </div>
+        </md-toolbar>
+        <div layout-gt-sm="row" layout="column">
             <div flex-gt-sm="50" flex="">
                 <md-toolbar layout="row" class="md-hue-3">
                     <div class="md-toolbar-tools">
