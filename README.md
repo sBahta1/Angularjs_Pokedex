@@ -25,7 +25,7 @@ Database is done with PostgreSQL, it should be created and called **"pokedex'**.
 
 ```
 
-See database.sql for table creation.
+See postgres.sql for table creation.
 
 ```
 
